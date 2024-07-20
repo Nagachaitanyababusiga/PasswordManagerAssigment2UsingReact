@@ -1,0 +1,221 @@
+.cont-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, #9ba9eb, #c3caea);
+}
+.cont-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 10px;
+}
+.cont-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #5763a5;
+  border-radius: 10px;
+  padding: 20px;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 10px;
+}
+.cont-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #5763a5;
+  border-radius: 10px;
+  font-size: 10px;
+  color: #ffffff;
+  font-family: 'Roboto';
+  padding: 20px;
+  width: 80%;
+  margin-bottom: 10px;
+  min-height: 500px;
+}
+.input-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 12px;
+  width: 50%;
+  border-radius: 8px;
+  background-color: #454f84;
+}
+.passwordmanager {
+  width: 400px;
+  height: 400px;
+}
+.applogo {
+  width: 160px;
+  height: 50px;
+}
+.input-ele-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  height: 40px;
+  width: 90%;
+  padding: 5px;
+}
+.input-element {
+  border-width: 0px;
+  margin-left: 8px;
+  width: 80%;
+  height: 80%;
+  outline: none;
+  background-color: transparent;
+}
+.input-ele-img-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-left-width: 3px;
+  border-color: black;
+}
+.input-ele-img {
+  width: 20px;
+  height: 20px;
+}
+.addbtn {
+  align-self: flex-end;
+  border-width: 0px;
+  outline: none;
+  cursor: pointer;
+  background-color: #0b69ff;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 5px;
+  width: 80px;
+  height: 30px;
+}
+.input-btn-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  height: 40px;
+  width: 90%;
+  padding: 5px;
+}
+.hrline {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+}
+.bottom-cont-top-header-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom-cont-top-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 13px;
+}
+.no-of-passwords {
+  background-color: transparent;
+  width: 40px;
+  height: 20px;
+  font-size: 15px;
+  border: 1px white solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-left: 8px;
+}
+
+.bottom-top-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffffff;
+  width: 200px;
+  height: 35px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.bottom-top-search-element {
+  outline: none;
+  cursor: pointer;
+  border: 0px;
+}
+
+.search {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.checkbox-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: bold;
+  font-size: 15px;
+  width: 100%;
+}
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  outline: none;
+  border: 0px;
+  cursor: pointer;
+}
+.nopasswordsimg {
+  height: 290px;
+  width: 380px;
+}
+.no-passwords-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.list-cont{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 100%;
+  margin: 5px;
+  padding: 0px;
+}
+@media (max-width: 991px) {
+  .passwordmanager {
+    width: 250px;
+    height: 250px;
+  }
+}
