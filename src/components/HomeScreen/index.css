@@ -167,6 +167,7 @@
   outline: none;
   cursor: pointer;
   border: 0px;
+  width: 95%;
 }
 
 .search {
@@ -249,7 +250,7 @@
     width: 12px;
     height: 12px;
   }
-  .bottom-cont-top-header{
+  .bottom-cont-top-header {
     flex-direction: column;
   }
 }

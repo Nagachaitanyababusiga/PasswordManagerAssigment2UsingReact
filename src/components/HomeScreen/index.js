@@ -149,6 +149,7 @@ class HomeScreen extends Component {
                 onChange={this.changeSearch}
                 className="bottom-top-search-element"
                 type="search"
+                placeholder="Search"
               />
             </div>
           </div>
