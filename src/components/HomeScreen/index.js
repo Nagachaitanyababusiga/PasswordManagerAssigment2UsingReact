@@ -5,14 +5,61 @@ import './index.css'
 
 class HomeScreen extends Component {
   state = {
-    UserList: [
-      {id: v4uuid(), website: 'utube.com', username: 'raghu', password: '1234'},
-    ],
+    UserList: [],
+    website: '',
+    username: '',
+    password: '',
+    showPassword: false,
+    search: '',
+  }
+
+  changeWebsite = event => {
+    this.setState({website: event.target.value})
+  }
+
+  changeUsername = event => {
+    this.setState({username: event.target.value})
+  }
+
+  changePassword = event => {
+    this.setState({password: event.target.value})
+  }
+
+  submit = event => {
+    event.preventDefault()
+    const {UserList, website, username, password} = this.state
+    if (website === '' || username === '' || password === '') return
+    const NewList = [...UserList, {id: v4uuid(), website, username, password}]
+    this.setState({UserList: NewList, website: '', username: '', password: ''})
+  }
+
+  changeSearch = event => {
+    this.setState({search: event.target.value})
+  }
+
+  changeCheckBox = event => {
+    this.setState({showPassword: event.target.checked})
+  }
+
+  deleteUserItem = id => {
+    this.setState(prevState => {
+      const newList = prevState.UserList.filter(x => x.id !== id)
+      return {UserList: newList}
+    })
   }
 
   render() {
-    const {UserList} = this.state
-    const FilteredList = UserList
+    const {
+      UserList,
+      website,
+      username,
+      password,
+      showPassword,
+      search,
+    } = this.state
+    const FilteredList = UserList.filter(x =>
+      x.website.toLowerCase().includes(search.toLowerCase()),
+    )
 
     return (
       <div className="cont-1">
@@ -24,7 +71,7 @@ class HomeScreen extends Component {
           />
         </div>
         <div className="cont-3">
-          <form className="input-cont">
+          <form className="input-cont" onSubmit={this.submit}>
             <h1>Add New Password</h1>
             <div className="input-ele-cont">
               <div className="input-ele-img-cont">
@@ -35,6 +82,8 @@ class HomeScreen extends Component {
                 />
               </div>
               <input
+                onChange={this.changeWebsite}
+                value={website}
                 type="text"
                 className="input-element"
                 placeholder="Enter website name"
@@ -49,6 +98,8 @@ class HomeScreen extends Component {
                 />
               </div>
               <input
+                onChange={this.changeUsername}
+                value={username}
                 type="text"
                 className="input-element"
                 placeholder="Enter Username"
@@ -63,6 +114,8 @@ class HomeScreen extends Component {
                 />
               </div>
               <input
+                onChange={this.changePassword}
+                value={password}
                 type="password"
                 className="input-element"
                 placeholder="Enter Password"
@@ -84,7 +137,7 @@ class HomeScreen extends Component {
           <div className="bottom-cont-top-header">
             <div className="bottom-cont-top-header-text">
               <h1>Your Passwords</h1>
-              <p className="no-of-passwords">0</p>
+              <p className="no-of-passwords">{FilteredList.length}</p>
             </div>
             <div className="bottom-top-search">
               <img
@@ -92,27 +145,44 @@ class HomeScreen extends Component {
                 alt="search"
                 src="https://assets.ccbp.in/frontend/react-js/password-manager-search-img.png"
               />
-              <input className="bottom-top-search-element" type="search" />
+              <input
+                onChange={this.changeSearch}
+                className="bottom-top-search-element"
+                type="search"
+              />
             </div>
           </div>
           <hr className="hrline" />
           <div className="checkbox-cont">
-            <input type="checkbox" className="checkbox" id="option" />
+            <input
+              onChange={this.changeCheckBox}
+              type="checkbox"
+              className="checkbox"
+              id="option"
+            />
             <label htmlFor="option">Show Passwords</label>
           </div>
-          <ul className="list-cont">
-            {FilteredList.map(x => (
-              <UserItem key={x.id} UserDetails={x} />
-            ))}
-          </ul>
-          <div className="no-passwords-cont">
-            <img
-              className="nopasswordsimg"
-              alt="no passwords"
-              src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
-            />
-            <p>No Passwords</p>
-          </div>
+          {FilteredList.length > 0 ? (
+            <ul className="list-cont">
+              {FilteredList.map(x => (
+                <UserItem
+                  key={x.id}
+                  UserDetails={x}
+                  deleteUserItem={this.deleteUserItem}
+                  showPassword={showPassword}
+                />
+              ))}
+            </ul>
+          ) : (
+            <div className="no-passwords-cont">
+              <img
+                className="nopasswordsimg"
+                alt="no passwords"
+                src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
+              />
+              <p>No Passwords</p>
+            </div>
+          )}
         </div>
       </div>
     )
